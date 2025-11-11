@@ -1,0 +1,23 @@
+<!-- Simple full-width navbar -->
+<header class="bg-indigo-800 text-white shadow">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex justify-between items-center h-14">
+      
+      <!-- Left: Brand -->
+      <a href="/" class="font-extrabold text-5xl  px-4 tracking-tight">
+        Climate Solutions
+      </a>
+
+      <!-- Right: Links -->
+      <nav class="flex justify-end space-x-8">
+        <a href="/" class="text-indigo-100 hover:text-white <%= page === '/' ? 'underline' : '' %>">
+          Home
+        </a>
+        <a href="/about" class="text-indigo-100 hover:text-white <%= page === '/about' ? 'underline' : '' %>">
+          About
+        </a>
+      </nav>
+
+    </div>
+  </div>
+</header>

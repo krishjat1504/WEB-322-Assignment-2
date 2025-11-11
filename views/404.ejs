@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Not Found • Climate Solutions</title>
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+  <%- include('partials/navbar', { page: '' }) %>
+  <section class="container mx-auto px-4 py-10">
+    <div class="hero bg-base-200 rounded-2xl">
+      <div class="hero-content text-center">
+        <div class="max-w-2xl">
+          <h1 class="text-5xl font-bold">404</h1>
+          <p class="py-6 text-lg"><%= typeof message !== 'undefined' ? message : 'Page not found.' %></p>
+          <a href="/" class="btn btn-primary">Go Home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

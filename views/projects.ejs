@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects • Climate Solutions</title>
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+  <%- include('partials/navbar', { page: '/solutions/projects' }) %>
+
+  <section class="container mx-auto px-4 py-10">
+    <div class="hero bg-base-200 rounded-2xl mb-8">
+      <div class="hero-content text-center">
+        <div class="max-w-3xl">
+          <h1 class="text-5xl font-bold">Projects</h1>
+          <p class="py-6 text-lg">Browse by sector:</p>
+          <div class="flex flex-wrap gap-3 justify-center">
+            <a class="btn btn-outline" href="/solutions/projects">All</a>
+            <a class="btn btn-outline" href="/solutions/projects?sector=Agriculture">Agriculture</a>
+            <a class="btn btn-outline" href="/solutions/projects?sector=Electricity">Electricity</a>
+            <a class="btn btn-outline" href="/solutions/projects?sector=Transportation">Transportation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Summary</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% projects.forEach(p => { %>
+          <tr>
+            <td>
+              <div class="font-semibold"><%= p.title %></div>
+              <div>
+                <a class="btn btn-xs btn-outline mt-2" href="/solutions/projects?sector=<%= encodeURIComponent(p.sector) %>"><%= p.sector %></a>
+              </div>
+            </td>
+            <td><%= p.summary_short %></td>
+            <td><a class="btn btn-primary btn-sm" href="/solutions/projects/<%= p.id %>">Details</a></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= project.title %> • Climate Solutions</title>
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+  <%- include('partials/navbar', { page: '' }) %>
+
+  <section class="container mx-auto px-4 py-10">
+    <div class="hero bg-base-200 rounded-2xl mb-8">
+      <div class="hero-content text-center">
+        <div class="max-w-3xl">
+          <h1 class="text-5xl font-bold"><%= project.title %></h1>
+          <p class="py-6 text-lg">Below, you will find detailed information about the project.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+      <img class="rounded-2xl shadow-md" src="<%= project.feature_img_url %>" alt="<%= project.title %>"/>
+      <div class="prose max-w-none">
+        <p class="text-sm opacity-70 mb-2">Sector: <%= project.sector %></p>
+        <p><%= project.intro_short %></p>
+        <h3>Impact</h3>
+        <p><%= project.impact %></p>
+        <p><a class="btn btn-outline btn-sm" href="<%= project.original_source_url %>" target="_blank" rel="noopener">Original source</a></p>
+
+        <div class="mt-6 p-4 rounded-xl bg-base-200">
+          <div id="quoteBox" class="italic">Fetching quote…</div>
+        </div>
+
+        <div class="mt-6">
+          <a class="btn" href="#" onclick="history.back(); return false;">← Back</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      try {
+        const res = await fetch("https://dummyjson.com/quotes/random");
+        const data = await res.json();
+        document.getElementById('quoteBox').textContent = `“${data.quote}” — ${data.author}`;
+      } catch (e) {
+        document.getElementById('quoteBox').textContent = "Unable to load quote right now.";
+      }
+    });
+  </script>
+</body>
+</html>

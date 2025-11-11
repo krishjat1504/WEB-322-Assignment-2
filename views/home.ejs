@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Climate Solutions</title>
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+  <%- include('partials/navbar', { page: '/' }) %>
+
+  <section class="container mx-auto px-4 py-10">
+    <div class="hero bg-base-200 rounded-2xl">
+      <div class="hero-content text-center">
+        <div class="max-w-2xl">
+          <h1 class="text-5xl font-bold">Explore Climate Projects</h1>
+          <p class="py-6 text-lg">Browse projects by sector and view details.</p>
+          <a class="btn btn-primary" href="/solutions/projects">Browse all projects</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 mt-10">
+      <% projects.forEach(p => { %>
+      <div class="card bg-base-100 shadow-xl">
+        <figure><img src="<%= p.feature_img_url %>" alt="<%= p.title %>" /></figure>
+        <div class="card-body">
+          <h2 class="card-title"><%= p.title %></h2>
+          <p><%= p.summary_short %></p>
+          <div class="card-actions justify-end">
+            <a class="btn btn-outline" href="/solutions/projects/<%= p.id %>">Details</a>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </section>
+</body>
+</html>
