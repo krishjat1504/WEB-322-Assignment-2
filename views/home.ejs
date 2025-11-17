@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,15 +23,22 @@
       </div>
     </div>
 
+    <!-- exactly one card per sector -->
     <div class="grid md:grid-cols-3 gap-6 mt-10">
-      <% projects.forEach(p => { %>
-      <div class="card bg-base-100 shadow-xl">
-        <figure><img src="<%= p.feature_img_url %>" alt="<%= p.title %>" /></figure>
+      <% featured.forEach(p => { %>
+      <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-200">
+        <figure>
+          <img src="<%= p.feature_img_url %>" alt="<%= p.title %>" class="h-48 w-full object-cover rounded-t-xl" />
+        </figure>
         <div class="card-body">
-          <h2 class="card-title"><%= p.title %></h2>
+          <div class="badge badge-outline w-fit"><%= p.sector %></div>
+          <h2 class="card-title mt-2"><%= p.title %></h2>
           <p><%= p.summary_short %></p>
-          <div class="card-actions justify-end">
-            <a class="btn btn-outline" href="/solutions/projects/<%= p.id %>">Details</a>
+          <div class="card-actions justify-between items-center mt-3">
+            <a class="link link-primary" href="/solutions/projects?sector=<%= encodeURIComponent(p.sector) %>">
+              View sector projects →
+            </a>
+            <a class="btn btn-outline btn-sm" href="/solutions/projects/<%= p.id %>">Details</a>
           </div>
         </div>
       </div>
@@ -37,3 +47,4 @@
   </section>
 </body>
 </html>
+

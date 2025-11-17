@@ -9,24 +9,102 @@
 <body>
   <%- include('partials/navbar', { page: '/about' }) %>
 
-  <section class="container mx-auto px-4 py-10">
-    <div class="hero bg-base-200 rounded-2xl mb-8">
-      <div class="hero-content text-center">
-        <div class="max-w-2xl">
-          <h1 class="text-5xl font-bold">About</h1>
-          <p class="py-6 text-lg">All about me and this site.</p>
+  <main class="container mx-auto px-4 py-10 space-y-10">
+
+    <!-- Page heading -->
+    <section class="prose prose-invert max-w-none">
+      <h1 class="!mb-2">About This Project</h1>
+      <p class="!mt-0 text-base-content/80">
+        A brief overview of who I am, what this WEB322 assignment includes, and why
+        climate-focused software matters.
+      </p>
+    </section>
+
+    <!-- Student & course info -->
+    <section class="grid md:grid-cols-2 gap-6">
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Student Information</h2>
+          <div class="grid sm:grid-cols-2 gap-x-6 gap-y-2">
+            <div>
+              <p class="text-sm text-base-content/70">Name</p>
+              <p class="font-semibold">Krish Jat</p>
+            </div>
+            <div>
+              <p class="text-sm text-base-content/70">Student ID</p>
+              <p class="font-semibold">102543246</p>
+            </div>
+            <div>
+              <p class="text-sm text-base-content/70">Subject</p>
+              <p class="font-semibold">WEB 322</p>
+            </div>
+            <div>
+              <p class="text-sm text-base-content/70">Email</p>
+              <p class="font-semibold">
+                <a class="link" href="mailto:kcjat@myseneca.ca">kcjat@myseneca.ca</a>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="grid md:grid-cols-2 gap-8 items-start">
-      <img class="rounded-2xl shadow-md" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop" alt="me" />
-      <div class="prose max-w-none">
-        <h2>Hi, I'm the developer.</h2>
-        <p>This WEB322 project shows Express, EJS, Tailwind and DaisyUI with dynamic routes and data rendering.</p>
-        <p>Hobbies: coding, cricket, coffee ☕.</p>
+      <!-- Project tech stack -->
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Technologies Used</h2>
+          <ul class="list-disc pl-5 space-y-1">
+            <li><span class="font-semibold">Node.js + Express</span> for server-side routing and middleware.</li>
+            <li><span class="font-semibold">EJS</span> templating to render dynamic pages from JSON data.</li>
+            <li><span class="font-semibold">Tailwind CSS</span> with <span class="font-semibold">DaisyUI</span> components for fast, responsive UI.</li>
+            <li><span class="font-semibold">JSON data</span> source (<code>data/projects.json</code>) for sectors/projects.</li>
+            <li><span class="font-semibold">Vercel</span> for hosting the Express app with GitHub integration.</li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Why environment & climate matter -->
+    <section class="card bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title">Why Focus on Environment & Climate?</h2>
+        <p>
+          Climate change is not an abstract topic—it influences food security, energy costs,
+          infrastructure resilience, and day-to-day health. Software can help by making data
+          easy to explore, revealing trade-offs, and highlighting solutions that scale.
+          This project organizes information by sector (Agriculture, Electricity, Transportation)
+          so people can quickly navigate real actions and impacts.
+        </p>
+      </div>
+    </section>
+
+    <!-- Personal perspective -->
+    <section class="card bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title">My Perspective</h2>
+        <p>
+          In my view, today’s climatic conditions show a clear pattern—hotter summers, sudden
+          storms, and unpredictable seasons. Even small inefficiencies compound into major
+          problems when multiplied across cities and supply chains. I believe developers have a
+          responsibility to build tools that are transparent, practical, and respectful of
+          real-world constraints. This assignment is a small step toward presenting climate
+          information in a way that motivates action rather than anxiety.
+        </p>
+      </div>
+    </section>
+
+    <!-- Acknowledgment -->
+    <section class="card bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title">Acknowledgment</h2>
+        <p>
+          I would like to thank <span class="font-semibold">Professor Rohit Gaur</span> for
+          guidance and support throughout this project. The feedback on routing structure,
+          view composition, and deployment expectations helped me keep the solution clean,
+          consistent, and aligned with WEB322 outcomes.
+        </p>
+      </div>
+    </section>
+
+  </main>
 </body>
 </html>
